@@ -61,20 +61,18 @@ const rittik = new NeptuneDev('Rittik Rowshon', 'England');
 // common / parent / super class
 class TeamMember {
     name;
-    designation;
     address;
-    constructor(name, des, address) {
+    constructor(name, address) {
         this.name = name;
-        this.designation = des;
         this.address = address;
     }
 }
 
 class Support extends TeamMember {
-
+    designation = 'Support Web Dev';
     groupSupport;
-    constructor(name, des, address, group) {
-        super(name, des, address)
+    constructor(name, address, group) {
+        super(name, address)
         this.groupSupport = group
     }
 
@@ -87,15 +85,17 @@ class Support extends TeamMember {
 };
 
 class StudentCare extends TeamMember {
+    designation = 'Student Care Web Dev';
     buildARoutine(student) {
         console.log(this.name, 'build a routine for', student);
     }
 };
 
 class NeptuneDev extends TeamMember {
+    designation = 'Neptune Web Dev';
     addFeature;
-    constructor(name, des, address, add) {
-        super(name, des, address)
+    constructor(name, address, add) {
+        super(name, address)
         this.addFeature = add;
     }
     relaseApp(version) {
@@ -104,15 +104,15 @@ class NeptuneDev extends TeamMember {
 }
 
 
-const amir = new Support('Amir Khan', 'Support Web Dev', 'India', 11);
-const srk = new Support('SRK', 'Support Web Dev', 'America', 3);
-const salman = new Support('Salman Khan', 'Support Web Dev', 'Dubai', 9);
+const amir = new Support('Amir Khan', 'India', 11);
+const srk = new Support('SRK', 'America', 3);
+const salman = new Support('Salman Khan', 'Dubai', 9);
 // console.log(salman);
 
-const akshay = new StudentCare('Akshay Kumar', 'Student Support Web Dev', 'India');
+const akshay = new StudentCare('Akshay Kumar', 'India');
 // akshay.buildARoutine('Tisha.')
 // console.log(akshay);
 
-const rittik = new NeptuneDev('Rittik Rowshon', 'Neptune Web Dev', 'England', 'Dark Mode');
+const rittik = new NeptuneDev('Rittik Rowshon', 'England', 'Dark Mode');
 rittik.relaseApp('1.4.5')
 console.log(rittik);
